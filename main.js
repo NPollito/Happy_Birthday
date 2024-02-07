@@ -1,7 +1,7 @@
 import messages from "./messages.js"
 
 // crear fondo
-for (let i = 0; i <= 75; i++) {
+for (let i = 0; i <= 40; i++) {
     let stars = document.createElement('DIV')
     stars.classList.add('star')
     stars.style.zIndex = "-1"
@@ -69,22 +69,49 @@ function note() {
 
 // effect card
 const flower = document.querySelector('.flower')
+let toogle = document.querySelector('#toogle')
 
-flower.addEventListener('click', () => {
-   const container = document.querySelector('.container-card')
-   container.style.transform = 'scale(.6)'
-
-   setTimeout(() => {
-    document.querySelector('.left-layer').style.transform = 'rotateY(-180deg)'
-    document.querySelector('.right-layer').style.transform = 'rotateY(-180deg)'
+toogle.addEventListener('change', () => {
     
+    const container = document.querySelector('.container-card')
     
-    setTimeout(() => {
-        document.querySelector('.top-layer').style.transform = 'rotateX(-180deg)'
-        document.querySelector('.botton-layer').style.transform = 'rotateX(-180deg)'
+    if (toogle.checked) {
+        
+        container.style.transform = 'scale(.6)'
+     
+        setTimeout(() => {
+         document.querySelector('.left-layer').style.transform = 'rotateY(-180deg)'
+         document.querySelector('.right-layer').style.transform = 'rotateY(-180deg)'
+         
+         
+         setTimeout(() => {
+             document.querySelector('.top-layer').style.transform = 'rotateX(-180deg)'
+             document.querySelector('.botton-layer').style.transform = 'rotateX(-180deg)'
+             flower.style.opacity = '.5'
+     
+         }, 600)
+     
+        }, 600) 
 
-    }, 600)
+    } else {
 
-   }, 600) 
+        setTimeout(() => {
+            document.querySelector('.top-layer').style.transform = 'rotateX(0deg)'
+            document.querySelector('.botton-layer').style.transform = 'rotateX(0deg)'
+
+            setTimeout(() => {
+                document.querySelector('.left-layer').style.transform = 'rotateY(0)'
+                document.querySelector('.right-layer').style.transform = 'rotateY(0)'
+
+                setTimeout(() => {
+                    container.style.transform = 'none'
+                    flower.style.opacity = '1'
+                }, 600);
+
+            }, 400);
+            
+        }, 300)
+        
+    }
 })
 

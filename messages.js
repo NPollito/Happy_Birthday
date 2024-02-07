@@ -23,6 +23,7 @@ const messages = [
     'Que pases un día horroroso, cargado de lloros y malos momentos. Que no... que es broma. Solo pretendía ser original y seguro que nadie te había deseado un feliz cumpleaños de esta manera. ¡A divertirse!',
     'Que la alegría que has difundido en el pasado vuelva a ti en este día. Te deseo un cumpleaños muy feliz.',
     'Para celebrar tu cumpleaños había pensado en un crucero por el Caribe. ¿Te importaría regarme las plantas hasta que regrese? ¡Feliz cumpleaños!',
+    'Espero que recuerdes este día durante el resto de tu vida.. Diviertete como una niña y disfruta como una reina'
 ]
 
 export default messages;

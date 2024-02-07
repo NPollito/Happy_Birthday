@@ -53,6 +53,7 @@ body {
 }
 
 .main-layer {
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: var(--color-primary);
@@ -66,7 +67,28 @@ body {
 .main-layer__background {
     width: 93%;
     height: 93%;
-    background-color: var(--color-secondary);
+    background-image: url(./img/texture.jpg);
+    background-position: center;
+    background-size: cover;
+    /* background-color: var(--color-secondary); */
+}
+
+.name {
+    position: absolute;
+    top: 108px;
+    left: 41px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.title {
+    margin-top: 30px;
+    margin-left: 72px;
+}
+
+.title-end {
+    margin-top: 90px;
+    margin-left: 64px;
 }
 
 .left-layer, .right-layer {
@@ -77,8 +99,10 @@ body {
     top: 0;
     width: 145px;
     height: 100%;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: var(--color-primary);
+    text-shadow: 2px 2px var(--color-primary),
+                 4px 4px 5px var(--color-third);
+    /* -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: var(--color-primary);*/
     color: var(--color-secondary);
     font-size: 1.5rem;
     text-align: center;
@@ -92,6 +116,8 @@ body {
     transform-origin: center left;
 }
 .left-layer h2 {
+    text-shadow: 2px 2px var(--color-primary),
+                 4px 4px 5px var(--color-third);
     margin-top: 45px;
 }
 
@@ -106,6 +132,12 @@ body {
     margin-top: 100px;
 }
 
+.right-layer h1 {
+    font-size: 2rem;
+    margin-top: 150px;
+    transform: rotate3d(1, 1, 1, -31deg);
+}
+
 .top-layer, .botton-layer {
     position: absolute;
     width: 100%;
@@ -116,14 +148,14 @@ body {
 
 .top-layer {
     top: 0;
-    height: 150px;
+    height: 200px;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 2px 3px 0px rgba(0, 0, 0, .4);
     transform-origin: center top;
 }
 
 .botton-layer {
-    height: 200px;
+    height: 150px;
     bottom: 0;
     border-radius: 15px 15px 0 0;
     box-shadow: 0 -2px 3px 0px rgba(0, 0, 0, .4);
@@ -188,13 +220,16 @@ body {
     height: 120px;
 }
 
+input {
+    display: none;
+}
+
 .flower {
     position: absolute;
-    top: 150px;
+    top: 190px;
     left: 100px;
     width: 100px;
     height: 80px;
-    /* transform: translate(-50%, -50%); */
     background-image: url(./img/rose.webp);
     background-position: center;
     background-size: cover;
@@ -204,6 +239,9 @@ body {
     animation-name: latir;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+}
+.flower:hover {
+    opacity: 1;
 }
 
 @keyframes latir {
@@ -233,6 +271,10 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, .2);
     clip-path: polygon(50% 45%, 0 0, 100% 0);
+}
+
+.card:hover {
+    background: linear-gradient(180deg, rgba(216,112,147,1) 31%, rgba(48,48,48,0.8911939775910365) 100%)
 }
 
 /* notas con js */
