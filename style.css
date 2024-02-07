@@ -1,0 +1,323 @@
+:root {
+    --color-primary: #303030;
+    --color-secondary: #ffffff;
+    --color-third: #d87093;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #111;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* estrellas */
+.star {
+    position: absolute;
+    color: #222;
+}
+.star:before {
+    content: "\f004";
+    font-family: fontAwesome;
+}
+
+.star.animate {
+    color: #0f0;
+    text-shadow: 0 0 5px  #0f0,
+                 0 0 20px #0f0,
+                 0 0 50px #0f0;
+}
+
+/* tarjeta */
+.container {
+    min-width: 400px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Protest Riot', sans-serif;
+    overflow: hidden;
+}
+
+.container-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transition: transform .5s ease-in-out;
+}
+
+.main-layer {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.main-layer__background {
+    width: 93%;
+    height: 93%;
+    background-color: var(--color-secondary);
+}
+
+.left-layer, .right-layer {
+    background-image: url(./img/detalle.webp);
+    background-size: cover;
+    background-position: left;
+    position: absolute;
+    top: 0;
+    width: 145px;
+    height: 100%;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    text-align: center;
+    transition: transform 1s;
+    z-index: 20;
+    
+}
+.left-layer {
+    border-radius: 0 25px 25px 0;
+    box-shadow: 3px 0 10px 1px rgba(0, 0, 0, .4);
+    transform-origin: center left;
+}
+.left-layer h2 {
+    margin-top: 45px;
+}
+
+.right-layer {
+    right: 0;
+    background-position: right;
+    border-radius: 25px  0  0 25px;
+    box-shadow: -3px 0 10px 1px rgba(0, 0, 0, .4);
+    transform-origin: center right;
+}
+.right-layer h2 {
+    margin-top: 100px;
+}
+
+.top-layer, .botton-layer {
+    position: absolute;
+    width: 100%;
+    background-color: var(--color-third);
+    transition: transform 1s;
+    z-index: 10;
+}
+
+.top-layer {
+    top: 0;
+    height: 150px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, .4);
+    transform-origin: center top;
+}
+
+.botton-layer {
+    height: 200px;
+    bottom: 0;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -2px 3px 0px rgba(0, 0, 0, .4);
+    transform-origin: center bottom;
+}
+
+/*  */
+.center {
+    transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+
+.front-page, .back-page, .back-pageDos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 40;
+}
+
+.front-page img {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    width: 115px;
+}
+
+.back-page {
+    background-color: var(--color-primary);
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.back-pageDos {
+    background-color: var(--color-primary);
+    transform: rotateX(180deg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-pageDos .container-img {
+    width: 90%;
+    height: 90%;
+    background-color: var(--color-secondary);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-img img {
+    width: 125px;
+    height: 120px;
+}
+
+.flower {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    width: 100px;
+    height: 80px;
+    /* transform: translate(-50%, -50%); */
+    background-image: url(./img/rose.webp);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 30;
+
+    animation-name: latir;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes latir {
+    0% {
+        transform: translateY(0);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* card con js */
+.card {
+    width: 90%;
+    height: 100px;
+    background-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.card::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    clip-path: polygon(50% 45%, 0 0, 100% 0);
+}
+
+/* notas con js */
+.note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #222222fd;
+
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.container_note {
+    position: relative;
+    width: 300px;
+    height: 240px;
+}
+.container_note:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 10px;
+    background: repeating-conic-gradient(from var(--a), #0f0, #ff0, #0ff, #f0f, #0ff);
+    border-radius: 20px;
+    text-align: center;
+    animation: rotating 4s linear infinite;
+}
+.container_note::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a), #0f0, #ff0, #0ff, #f0f, #0ff);
+    border-radius: 20px;
+    animation: rotating 4s linear infinite;
+    filter: blur(40px);
+    opacity: 0.75;
+}
+
+.container_note .container_message {
+    position: absolute;
+    padding: 10px;
+    inset: 4px;
+    background: #222;
+    border-radius: 16px;
+    text-align: center;
+    z-index: 1;
+    color: var(--color-secondary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes rotating {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
+    }
+}
+
+.container_message p {
+    font-size: 1.3rem;
+}
+
+.container_message .close {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 1.4rem;
+}
+.close:hover {
+    color: var(--color-third);
+    cursor: pointer;
+}
