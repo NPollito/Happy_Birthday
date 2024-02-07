@@ -13,7 +13,7 @@ for (let i = 0; i <= 40; i++) {
     stars.style.top = Math.random () * + innerHeight + 'px'
     stars.style.filter = `hue-rotate(${i * 5}deg)`
 
-    document.querySelector('body').appendChild(stars)
+    document.querySelector('.main').appendChild(stars)
 }
 
 function animatedStart() {

@@ -11,9 +11,11 @@
 }
 
 body {
-    position: relative;
     background-color: #111;
-    min-height: 100vh;
+}
+
+.main {
+    position: relative;
     overflow: hidden;
 }
 
@@ -36,13 +38,15 @@ body {
 
 /* tarjeta */
 .container {
+    width: 100%;
     min-width: 400px;
     min-height: 100vh;
+    font-family: 'Protest Riot', sans-serif;
+    overflow: hidden;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Protest Riot', sans-serif;
-    overflow: hidden;
 }
 
 .container-card {
@@ -70,25 +74,25 @@ body {
     background-image: url(./img/texture.jpg);
     background-position: center;
     background-size: cover;
-    /* background-color: var(--color-secondary); */
+    font-family: 'Open Sans', sans-serif;  
 }
 
 .name {
     position: absolute;
-    top: 108px;
+    top: 81px;
     left: 41px;
     writing-mode: vertical-rl;
     text-orientation: upright;
 }
 
 .title {
-    margin-top: 30px;
+    margin-top: 12px;
     margin-left: 72px;
 }
 
 .title-end {
-    margin-top: 90px;
-    margin-left: 64px;
+    margin-top: 68px;
+    margin-left: 54px;
 }
 
 .left-layer, .right-layer {
@@ -101,8 +105,6 @@ body {
     height: 100%;
     text-shadow: 2px 2px var(--color-primary),
                  4px 4px 5px var(--color-third);
-    /* -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: var(--color-primary);*/
     color: var(--color-secondary);
     font-size: 1.5rem;
     text-align: center;
@@ -258,6 +260,7 @@ input {
 
 /* card con js */
 .card {
+    position: relative;
     width: 90%;
     height: 100px;
     background-color: var(--color-secondary);
@@ -271,6 +274,18 @@ input {
     height: 100%;
     background-color: rgba(0, 0, 0, .2);
     clip-path: polygon(50% 45%, 0 0, 100% 0);
+}
+
+.card::after {
+    position: absolute;
+    top: 45px;
+    text-shadow: none;
+    content: 'abrir';
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: var(--color-primary);
+    opacity: .4;
 }
 
 .card:hover {
