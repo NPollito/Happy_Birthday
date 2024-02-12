@@ -71,7 +71,7 @@ body {
 .main-layer__background {
     width: 93%;
     height: 93%;
-    background-image: url(./img/texture.jpg);
+    background-image: url(./img/texture.webp);
     background-position: center;
     background-size: cover;
     font-family: 'Open Sans', sans-serif;  
@@ -96,9 +96,6 @@ body {
 }
 
 .left-layer, .right-layer {
-    background-image: url(./img/detalle.webp);
-    background-size: cover;
-    background-position: left;
     position: absolute;
     top: 0;
     width: 145px;
@@ -110,12 +107,17 @@ body {
     text-align: center;
     transition: transform 1s;
     z-index: 20;
-    
 }
 .left-layer {
     border-radius: 0 25px 25px 0;
     box-shadow: 3px 0 10px 1px rgba(0, 0, 0, .4);
     transform-origin: center left;
+}
+.left-layer__img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 0 25px 25px 0;
 }
 .left-layer h2 {
     text-shadow: 2px 2px var(--color-primary),
@@ -129,6 +131,12 @@ body {
     border-radius: 25px  0  0 25px;
     box-shadow: -3px 0 10px 1px rgba(0, 0, 0, .4);
     transform-origin: center right;
+}
+.right-layer__img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 25px 0 0 25px;
 }
 .right-layer h2 {
     margin-top: 100px;
@@ -190,6 +198,7 @@ body {
 .back-page {
     background-color: var(--color-primary);
     transform: rotateY(180deg);
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
